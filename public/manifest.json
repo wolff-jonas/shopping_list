@@ -1,0 +1,31 @@
+{
+  "name": "Shopping List",
+  "short_name": "Shopping",
+  "icons": [
+    {
+      "src": "/icons/favicon.png",
+      "sizes": "240x240",
+      "type": "image/png"
+    }
+  ],
+  "screenshots" : [
+    {
+      "src": "/icons/screenshot_wide.png",
+      "sizes": "2255x1349",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Homescreen of Shopping App"
+    },
+    {
+      "src": "/icons/screenshot_mobile.png",
+      "sizes": "417x915",
+      "type": "image/png",
+      "label": "Homescreen of Shopping App"
+    }
+  ],
+  "theme_color": "#8931b2",
+  "background_color": "#FFFFFF",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}
