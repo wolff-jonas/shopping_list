@@ -1,5 +1,5 @@
 import {Button, Center, Checkbox, Grid, Paper, Text} from "@mantine/core";
-import {IconChevronDown, IconChevronUp, IconTrash} from "@tabler/icons-react";
+import {IconChevronDown, IconChevronUp, IconPencil, IconTrash} from "@tabler/icons-react";
 import {ItemActions, ListActions, useListsDispatch} from "@/app/lists/ListsContext";
 import {Item} from "@/app/lib/types";
 
@@ -32,9 +32,7 @@ export default function ListItem({item, listId}: { item: Item, listId: number })
                     </Center>
                 </Grid.Col>
                 <Grid.Col span="auto">
-                    <Center h="100%">
-                        <Text>{item.name}</Text>
-                    </Center>
+                    <Text ta="left">{item.name}</Text>
                 </Grid.Col>
                 <Grid.Col span="content">
                     <Center h="100%">
