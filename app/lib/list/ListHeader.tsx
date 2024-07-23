@@ -1,7 +1,7 @@
 import {Button, Center, Grid, Modal, Title} from "@mantine/core";
 import {IconChevronLeft, IconPlus, IconTrash} from "@tabler/icons-react";
 import {useDisclosure} from "@mantine/hooks";
-import NewItemModal from "@/app/lists/[listId]/NewItemModal";
+import CreateItemModal from "@/app/lib/item/CreateItemModal";
 import React from "react";
 import {List} from "@/app/lib/types";
 import Link from "next/link";
@@ -51,7 +51,7 @@ export default function ListHeader({list}: { list: List }) {
                 </Grid.Col>
             </Grid>
             <Modal opened={addModalOpened} onClose={addModalClose} title="New item">
-                <NewItemModal listId={list.id} modalClose={addModalClose}/>
+                <CreateItemModal listId={list.id} modalClose={addModalClose}/>
             </Modal>
         </>
     )

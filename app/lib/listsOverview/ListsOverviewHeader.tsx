@@ -2,10 +2,10 @@ import {Button, Center, Grid, Modal, Title} from "@mantine/core";
 import {IconDotsVertical, IconPlus} from "@tabler/icons-react";
 import {useDisclosure} from "@mantine/hooks";
 import React from "react";
-import NewListModal from "@/app/lists/NewListModal";
+import CreateListModal from "@/app/lib/list/CreateListModal";
 
 
-export default function ListsHeader() {
+export default function ListsOverviewHeader() {
 
     const [addModalOpened, {open: addModalOpen, close: addModalClose}] = useDisclosure(false);
 
@@ -36,7 +36,7 @@ export default function ListsHeader() {
                 </Grid.Col>
             </Grid>
             <Modal opened={addModalOpened} onClose={addModalClose} title="New list">
-                <NewListModal modalClose={addModalClose}/>
+                <CreateListModal modalClose={addModalClose}/>
             </Modal>
         </>
     )

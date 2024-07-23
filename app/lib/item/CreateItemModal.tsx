@@ -2,9 +2,8 @@ import {isInRange, isNotEmpty, useForm} from "@mantine/form";
 import {Button, Group, NumberInput, Popover, PopoverDropdown, PopoverTarget, Text, TextInput} from "@mantine/core";
 import {useDisclosure, useFocusTrap, useTimeout} from "@mantine/hooks";
 import {ItemActions, ListActions, useListsDispatch, useNextItemId} from "@/app/lists/ListsContext";
-import {useRef} from "react";
 
-export default function NewItemModal({modalClose, listId}: {
+export default function CreateItemModal({modalClose, listId}: {
     modalClose: () => void,
     listId: number
 }) {

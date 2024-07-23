@@ -1,8 +1,8 @@
 'use client';
 
-import ListHeader from "@/app/lists/[listId]/ListHeader";
+import ListHeader from "@/app/lib/list/ListHeader";
 import {Divider, ScrollArea, Space, Stack, Text} from "@mantine/core";
-import ListItem from "@/app/lists/[listId]/ListItem";
+import ItemCard from "@/app/lib/item/ItemCard";
 import {Item} from "@/app/lib/types";
 import {useLists} from "@/app/lists/ListsContext";
 import {useRouter} from "next/navigation";
@@ -34,13 +34,13 @@ export default function ListComponent({params}: { params: { listId: string } }) 
             <ScrollArea.Autosize>
                 <Stack justify="flex-start" gap="xs" p="xs">
                     {list.items.filter(i => !i.checked).sort(itemSorter).map(item =>
-                        <ListItem key={item.id} listId={list.id} item={item}/>
+                        <ItemCard key={item.id} listId={list.id} item={item}/>
                     )}
                 </Stack>
                 <Divider/>
                 <Stack justify="flex-start" gap="xs" p="xs">
                     {list.items.filter(i => i.checked).sort(itemSorter).map(item =>
-                        <ListItem key={item.id} listId={list.id} item={item}/>
+                        <ItemCard key={item.id} listId={list.id} item={item}/>
                     )}
                 </Stack>
                 {/*Because the footer hides some elements behind it*/}

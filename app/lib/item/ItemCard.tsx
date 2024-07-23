@@ -1,9 +1,9 @@
 import {Button, Center, Checkbox, Grid, Paper, Text} from "@mantine/core";
-import {IconChevronDown, IconChevronUp, IconPencil, IconTrash} from "@tabler/icons-react";
+import {IconPencil} from "@tabler/icons-react";
 import {ItemActions, ListActions, useListsDispatch} from "@/app/lists/ListsContext";
 import {Item} from "@/app/lib/types";
 
-export default function ListItem({item, listId}: { item: Item, listId: number }) {
+export default function ItemCard({item, listId}: { item: Item, listId: number }) {
 
     const dispatch = useListsDispatch();
 
@@ -42,48 +42,12 @@ export default function ListItem({item, listId}: { item: Item, listId: number })
                                         action: ListActions.ITEM_ACTION,
                                         listId: listId,
                                         itemAction: {
-                                            action: ItemActions.UPDATE,
-                                            item: {
-                                                ...item,
-                                                sort: item.sort - 1
-                                            }
-                                        }
-                                    })
-                                }}>
-                            <IconChevronUp/>
-                        </Button>
-                        <Button variant="transparent" fullWidth size="compact-sm"
-                                onClick={() => {
-                                    dispatch({
-                                        action: ListActions.ITEM_ACTION,
-                                        listId: listId,
-                                        itemAction: {
-                                            action: ItemActions.UPDATE,
-                                            item: {
-                                                ...item,
-                                                sort: item.sort + 1
-                                            }
-                                        }
-                                    })
-                                }}>
-                            <IconChevronDown/>
-                        </Button>
-                    </Center>
-                </Grid.Col>
-                <Grid.Col span="content">
-                    <Center h="100%">
-                        <Button variant="transparent" fullWidth size="compact-sm"
-                                onClick={() => {
-                                    dispatch({
-                                        action: ListActions.ITEM_ACTION,
-                                        listId: listId,
-                                        itemAction: {
                                             action: ItemActions.DELETE,
                                             item: item
                                         }
                                     })
                                 }}>
-                            <IconTrash/>
+                            <IconPencil/>
                         </Button>
                     </Center>
                 </Grid.Col>

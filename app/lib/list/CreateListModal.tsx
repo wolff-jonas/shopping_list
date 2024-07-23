@@ -2,7 +2,7 @@ import {isNotEmpty, useForm} from "@mantine/form";
 import {Button, Group, TextInput} from "@mantine/core";
 import {ListActions, useListsDispatch, useNextListId} from "@/app/lists/ListsContext";
 
-export default function NewListModal({modalClose}: {
+export default function CreateListModal({modalClose}: {
     modalClose: () => void
 }) {
 
