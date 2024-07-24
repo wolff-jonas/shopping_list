@@ -84,7 +84,7 @@ export default function RootLayout({
             <meta name="description" content="A little shopping list app"/>
             <meta name="format-detection" content="telephone=no"/>
             <meta name="mobile-web-app-capable" content="yes"/>
-            <meta name="theme-color" content="#CA01BB"/>
+            <meta name="theme-color" content="#ffd0fb"/>
 
             <link rel="icon" type="image/png" href="/icons/favicon.png"/>
             <link rel="manifest" href="/manifest.json"/>
