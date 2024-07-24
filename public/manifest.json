@@ -23,7 +23,7 @@
       "label": "Homescreen of Shopping App"
     }
   ],
-  "theme_color": "#8931b2",
+  "theme_color": "#ffd0fb",
   "background_color": "#FFFFFF",
   "start_url": "/",
   "display": "standalone",
