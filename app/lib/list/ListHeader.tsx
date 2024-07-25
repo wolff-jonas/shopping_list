@@ -1,27 +1,17 @@
 import {Button, Center, Grid, Modal, Title} from "@mantine/core";
-import {IconChevronLeft, IconPlus, IconTrash} from "@tabler/icons-react";
+import {IconChevronLeft, IconPencil, IconPlus} from "@tabler/icons-react";
 import {useDisclosure} from "@mantine/hooks";
 import CreateItemModal from "@/app/lib/item/CreateItemModal";
 import React from "react";
 import {List} from "@/app/lib/types";
 import Link from "next/link";
-import {ListActions, useListsDispatch} from "@/app/lists/ListsContext";
-import {useRouter} from "next/navigation";
+import EditListModal from "@/app/lib/list/EditListModal";
 
 
 export default function ListHeader({list}: { list: List }) {
 
     const [addModalOpened, {open: addModalOpen, close: addModalClose}] = useDisclosure(false);
-    const dispatch = useListsDispatch();
-    const router = useRouter();
-
-    function deleteList() {
-        dispatch({
-            action: ListActions.DELETE,
-            deleteId: list.id
-        });
-        router.push("/lists");
-    }
+    const [editModalOpened, {open: editModalOpen, close: editModalClose}] = useDisclosure(false);
 
     return (
         <>
@@ -45,13 +35,16 @@ export default function ListHeader({list}: { list: List }) {
                     </Button>
                 </Grid.Col>
                 <Grid.Col span="content">
-                    <Button variant="transparent" fullWidth size="compact-xl" onClick={deleteList}>
-                        <IconTrash/>
+                    <Button variant="transparent" fullWidth size="compact-xl" onClick={editModalOpen}>
+                        <IconPencil/>
                     </Button>
                 </Grid.Col>
             </Grid>
             <Modal opened={addModalOpened} onClose={addModalClose} title="New item">
                 <CreateItemModal listId={list.id} modalClose={addModalClose}/>
+            </Modal>
+            <Modal opened={editModalOpened} onClose={editModalClose} title="Edit list">
+                <EditListModal list={list} modalClose={editModalClose}/>
             </Modal>
         </>
     )
