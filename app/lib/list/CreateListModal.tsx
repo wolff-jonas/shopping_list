@@ -38,7 +38,7 @@ export default function CreateListModal({modalClose}: {
                     withAsterisk
                     data-autofocus
                     label="Name"
-                    placeholder="Milk"
+                    placeholder="Bakery"
                     key={form.key('name')}
                     {...form.getInputProps('name')}
                 />
