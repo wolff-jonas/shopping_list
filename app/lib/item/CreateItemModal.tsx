@@ -2,10 +2,23 @@ import {isInRange, isNotEmpty, useForm} from "@mantine/form";
 import {Button, Group, NumberInput, Popover, PopoverDropdown, PopoverTarget, Text, TextInput} from "@mantine/core";
 import {useDisclosure, useFocusTrap, useTimeout} from "@mantine/hooks";
 import {ItemActions, ListActions, useListsDispatch, useNextItemId} from "@/app/lists/ListsContext";
+import {List} from "@/app/lib/types";
 
-export default function CreateItemModal({modalClose, listId}: {
+function validateName(value: string | undefined, list: List) {
+    let error = isNotEmpty('Name must not be empty')(value);
+    if (error) {
+        return error;
+    }
+
+    let existingItem = list.items.find(i => i.name === value);
+    if (existingItem) {
+        return "An item with that name already exists"
+    }
+}
+
+export default function CreateItemModal({modalClose, list}: {
     modalClose: () => void,
-    listId: number
+    list: List
 }) {
 
     const dispatch = useListsDispatch();
@@ -16,7 +29,7 @@ export default function CreateItemModal({modalClose, listId}: {
             quantity: 1
         },
         validate: {
-            name: isNotEmpty('Name must not be empty'),
+            name: v => validateName(v, list),
             quantity: isInRange({min: 1}, 'Quantity must be greater than zero')
         }
     });
@@ -31,13 +44,13 @@ export default function CreateItemModal({modalClose, listId}: {
         timerStart();
     }
 
-    const newItemId = useNextItemId(listId);
+    const newItemId = useNextItemId(list.id);
 
 
     function add(values: { name: string, quantity: number }) {
         dispatch({
             action: ListActions.ITEM_ACTION,
-            listId: listId,
+            listId: list.id,
             itemAction: {
                 action: ItemActions.ADD,
                 item:

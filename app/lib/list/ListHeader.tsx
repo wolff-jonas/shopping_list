@@ -41,7 +41,7 @@ export default function ListHeader({list}: { list: List }) {
                 </Grid.Col>
             </Grid>
             <Modal opened={addModalOpened} onClose={addModalClose} title="New item">
-                <CreateItemModal listId={list.id} modalClose={addModalClose}/>
+                <CreateItemModal list={list} modalClose={addModalClose}/>
             </Modal>
             <Modal opened={editModalOpened} onClose={editModalClose} title="Edit list">
                 <EditListModal list={list} modalClose={editModalClose}/>
