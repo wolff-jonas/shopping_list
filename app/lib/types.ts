@@ -1,4 +1,4 @@
-export type Item = {
+export interface Item {
     id?: number,
     name: string,
     sort: number,
@@ -6,7 +6,7 @@ export type Item = {
     checked: boolean
 }
 
-export type List = {
+export interface List {
     id: number,
     name: string,
     items: Item[]

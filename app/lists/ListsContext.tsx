@@ -9,7 +9,7 @@ export enum ItemActions {
     ADD, DELETE, UPDATE, SORT_UP, SORT_DOWN
 }
 
-export type ItemAction = {
+export interface ItemAction {
     action: ItemActions,
     item: Item
 }
@@ -36,6 +36,7 @@ export type ListAction = {
 const ListsContext = createContext<List[]>([]);
 
 const ListsDispatchContext = createContext<Dispatch<ListAction>>(() => {
+    // do nothing
 });
 
 export function useLists() {
@@ -120,7 +121,7 @@ function readFromLocalStorage(): List[] {
     if (saved === null) {
         return [{id: 0, name: "Inageya", items: [{id: 0, name: "Milk", checked: false, quantity: 1, sort: 0}]}];
     }
-    return JSON.parse(saved);
+    return JSON.parse(saved) as List[];
 }
 
 export default function ListContextProvider({children}: { children: ReactNode }) {

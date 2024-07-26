@@ -5,12 +5,12 @@ import {ItemActions, ListActions, useListsDispatch, useNextItemId} from "@/app/l
 import {List} from "@/app/lib/types";
 
 function validateName(value: string | undefined, list: List) {
-    let error = isNotEmpty('Name must not be empty')(value);
+    const error = isNotEmpty('Name must not be empty')(value);
     if (error) {
         return error;
     }
 
-    let existingItem = list.items.find(i => i.name === value);
+    const existingItem = list.items.find(i => i.name === value);
     if (existingItem) {
         return "An item with that name already exists"
     }

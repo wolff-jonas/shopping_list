@@ -3,8 +3,6 @@ import {Button, Group, NumberInput, TextInput} from "@mantine/core";
 import {isInRange, isNotEmpty, useForm} from "@mantine/form";
 import {useFocusTrap} from "@mantine/hooks";
 import {ItemActions, ListActions, useListsDispatch} from "@/app/lists/ListsContext";
-import {Simulate} from "react-dom/test-utils";
-import cancel = Simulate.cancel;
 import {IconDeviceFloppy, IconTrashX} from "@tabler/icons-react";
 
 export default function EditItemModal({modalClose, listId, item}: {

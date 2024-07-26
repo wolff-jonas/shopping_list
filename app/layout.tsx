@@ -54,7 +54,7 @@ const theme = createTheme({
     defaultRadius: "md"
 });
 
-export type Tab = {
+export interface Tab {
     slug: string,
     text: string
 }
