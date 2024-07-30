@@ -1,5 +1,5 @@
 import {Button, Center, Grid, Modal, Title} from "@mantine/core";
-import {IconDotsVertical, IconPlus} from "@tabler/icons-react";
+import {IconPlus} from "@tabler/icons-react";
 import {useDisclosure} from "@mantine/hooks";
 import React from "react";
 import CreateListModal from "@/app/lib/list/CreateListModal";
@@ -15,7 +15,7 @@ export default function ListsOverviewHeader() {
                 <Grid.Col span="content">
                     {/*Just here to fill space for the layout*/}
                     {/*TODO find a better way to lay this out*/}
-                    <Button variant="transparent" fullWidth size="compact-xl" />
+                    <Button variant="transparent" fullWidth size="compact-xl"/>
                 </Grid.Col>
                 <Grid.Col span="auto">
                     <Center h="100%">
@@ -27,11 +27,6 @@ export default function ListsOverviewHeader() {
                 <Grid.Col span="content">
                     <Button onClick={addModalOpen} variant="transparent" fullWidth size="compact-xl">
                         <IconPlus/>
-                    </Button>
-                </Grid.Col>
-                <Grid.Col span="content">
-                    <Button variant="transparent" fullWidth size="compact-xl">
-                        <IconDotsVertical/>
                     </Button>
                 </Grid.Col>
             </Grid>

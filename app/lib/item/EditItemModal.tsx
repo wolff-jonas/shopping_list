@@ -3,7 +3,7 @@ import {Button, Group, NumberInput, TextInput} from "@mantine/core";
 import {isInRange, isNotEmpty, useForm} from "@mantine/form";
 import {useFocusTrap} from "@mantine/hooks";
 import {ItemActions, ListActions, useListsDispatch} from "@/app/lists/ListsContext";
-import {IconDeviceFloppy, IconTrashX} from "@tabler/icons-react";
+import {IconDeviceFloppy} from "@tabler/icons-react";
 
 export default function EditItemModal({modalClose, listId, item}: {
     modalClose: () => void,
@@ -42,24 +42,6 @@ export default function EditItemModal({modalClose, listId, item}: {
         modalClose();
     }
 
-    function cancel() {
-        modalClose();
-    }
-
-    function deleteItem() {
-        dispatch({
-            action: ListActions.ITEM_ACTION,
-            listId: listId,
-            itemAction: {
-                action: ItemActions.DELETE,
-                item: {
-                    ...item
-                }
-            }
-        });
-        modalClose();
-    }
-
     return (
         <form>
             <TextInput
@@ -78,10 +60,8 @@ export default function EditItemModal({modalClose, listId, item}: {
                 {...form.getInputProps('quantity', {type: 'input'})}
             />
 
-            <Group justify="space-between" mt="md" gap={1}>
+            <Group justify="right" mt="md" gap={1}>
                 <Button onClick={() => form.onSubmit(save)()}><IconDeviceFloppy/>Save</Button>
-                <Button onClick={() => form.onSubmit(deleteItem)()}><IconTrashX/>Delete</Button>
-                <Button onClick={() => form.onSubmit(cancel)()}>Cancel</Button>
             </Group>
         </form>
     )
