@@ -25,6 +25,7 @@ export default function CreateListModal({modalClose}: {
             list: {
                 id: newItemId,
                 name: values.name,
+                pointsCardCode: "",
                 items: []
             }
         });

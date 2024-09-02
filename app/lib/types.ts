@@ -9,6 +9,7 @@ export interface Item {
 export interface List {
     id: number,
     name: string,
+    pointsCardCode: string
     items: Item[]
 }
 
