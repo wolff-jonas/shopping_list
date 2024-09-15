@@ -1,10 +1,10 @@
 'use client';
 
 import ListHeader from "@/app/lib/list/ListHeader";
-import {Divider, ScrollArea, Space, Stack, Text} from "@mantine/core";
+import {Divider, ScrollArea, Skeleton, Space, Stack} from "@mantine/core";
 import ItemCard from "@/app/lib/item/ItemCard";
-import {Item} from "@/app/lib/types";
-import {useLists} from "@/app/ListsContext";
+import {Item, List} from "@/app/lib/types";
+import {useLists, useListsLoaded} from "@/app/ListsContext";
 import {useRouter} from "next/navigation";
 import {useEffect} from "react";
 
@@ -12,19 +12,71 @@ import {useEffect} from "react";
 export default function ListComponent({params}: { params: { listId: string } }) {
 
     const list = useLists().find(l => l.id.toString() === params.listId);
+    const loaded = useListsLoaded();
     const router = useRouter();
 
     useEffect(() => {
-        if (!list) {
+        // Prevent throwing back to overview if lists have not loaded yet
+        if (!list && loaded) {
             console.error(`List with id ${params.listId} not found`);
             router.push("/");
         }
-    }, [list, params.listId, router]);
+    }, [loaded, list, params.listId, router]);
 
     if (!list?.items) {
-        // todo render placeholders
+        // Render fake list while loading
+        const fakeList: List = {
+            id: -1, items: [{
+                id: 0,
+                name: "Loading...",
+                quantity: 42,
+                checked: false
+            }, {
+                id: 1,
+                name: "Loading...",
+                quantity: 42,
+                checked: false
+            }, {
+                id: 2,
+                name: "Loading...",
+                quantity: 42,
+                checked: false
+            }, {
+                id: 3,
+                name: "Loading...",
+                quantity: 42,
+                checked: true
+            }, {
+                id: 4,
+                name: "Loading...",
+                quantity: 42,
+                checked: true
+            },], name: "Loading...", pointsCardCode: "123456789"
+        };
         return (
-            <Text>Oink? </Text>
+            <>
+                <ListHeader list={fakeList}/>
+                <ScrollArea.Autosize>
+                    <Stack justify="flex-start" gap="xs" p="xs">
+                        {fakeList.items.filter(i => !i.checked).sort(itemSorter).map(item =>
+                            <Skeleton key={item.id}>
+                                <ItemCard listId={fakeList.id} item={item}/>
+                            </Skeleton>
+                        )}
+                    </Stack>
+                    <Divider/>
+                    <Stack justify="flex-start" gap="xs" p="xs">
+                        {fakeList.items.filter(i => i.checked).sort(itemSorter).map(item =>
+                            <Skeleton key={item.id}>
+                                <ItemCard listId={fakeList.id} item={item}/>
+                            </Skeleton>
+                        )}
+                    </Stack>
+                    {/*Because the footer hides some elements behind it*/}
+                    <Space h="xl"/>
+                    <Space h="xl"/>
+                </ScrollArea.Autosize>
+            </>
         );
     }
 

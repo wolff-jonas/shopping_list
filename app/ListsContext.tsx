@@ -39,12 +39,18 @@ const ListsDispatchContext = createContext<Dispatch<ListAction>>(() => {
     // do nothing
 });
 
+const ListsLoadedContext = createContext(false);
+
 export function useLists() {
     return useContext(ListsContext);
 }
 
 export function useListsDispatch() {
     return useContext(ListsDispatchContext);
+}
+
+export function useListsLoaded() {
+    return useContext(ListsLoadedContext);
 }
 
 export function useNextItemId(listId: number) {
@@ -155,7 +161,9 @@ export default function ListContextProvider({children}: { children: ReactNode })
     return (
         <ListsContext.Provider value={lists}>
             <ListsDispatchContext.Provider value={dispatch}>
-                {children}
+                <ListsLoadedContext.Provider value={loaded}>
+                    {children}
+                </ListsLoadedContext.Provider>
             </ListsDispatchContext.Provider>
         </ListsContext.Provider>
     );
