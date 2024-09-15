@@ -53,8 +53,5 @@ export default function ListComponent({params}: { params: { listId: string } }) 
 
 
 function itemSorter(a: Item, b: Item): number {
-    if (a.sort === b.sort) {
-        return a.name.localeCompare(b.name);
-    }
-    return a.sort > b.sort ? 1 : -1;
+    return a.name.localeCompare(b.name);
 }
