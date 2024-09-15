@@ -123,7 +123,7 @@ function readFromLocalStorage(): List[] {
             id: 0,
             name: "Inageya",
             pointsCardCode: "",
-            items: [{id: 0, name: "Milk", checked: false, quantity: 1, sort: 0}]
+            items: [{id: 0, name: "Milk", checked: false, quantity: 1}]
         }];
     }
     return JSON.parse(saved) as List[];

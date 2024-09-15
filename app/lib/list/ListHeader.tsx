@@ -6,7 +6,7 @@ import React from "react";
 import {List} from "@/app/lib/types";
 import Link from "next/link";
 import EditListModal from "@/app/lib/list/EditListModal";
-import {ListActions, useListsDispatch} from "@/app/lists/ListsContext";
+import {ListActions, useListsDispatch} from "@/app/ListsContext";
 import {useRouter} from "next/navigation";
 import PointsCardModal from "@/app/lib/list/PointsCardModal";
 
@@ -25,7 +25,7 @@ export default function ListHeader({list}: { list: List }) {
             action: ListActions.DELETE,
             deleteId: list.id
         });
-        router.push("/lists");
+        router.push("/");
     }
 
     return (
@@ -33,7 +33,7 @@ export default function ListHeader({list}: { list: List }) {
             <Grid p="xs">
                 <Grid.Col span="content">
                     <Button variant="transparent" fullWidth size="compact-xl"
-                            component={Link} href="/lists">
+                            component={Link} href="/">
                         <IconChevronLeft/>
                     </Button>
                 </Grid.Col>

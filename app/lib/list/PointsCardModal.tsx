@@ -1,6 +1,6 @@
 import {List} from "@/app/lib/types";
 import {Stack, TextInput} from "@mantine/core";
-import {ListActions, useListsDispatch} from "@/app/lists/ListsContext";
+import {ListActions, useListsDispatch} from "@/app/ListsContext";
 import Barcode from "react-barcode";
 
 export default function PointsCardModal({list}: {

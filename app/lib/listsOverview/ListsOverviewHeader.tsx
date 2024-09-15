@@ -20,7 +20,7 @@ export default function ListsOverviewHeader() {
                 <Grid.Col span="auto">
                     <Center h="100%">
                         <Title order={3} ta="center">
-                            Lists
+                            Overview
                         </Title>
                     </Center>
                 </Grid.Col>

@@ -2,7 +2,7 @@ import {Item} from "@/app/lib/types";
 import {Button, Group, NumberInput, TextInput} from "@mantine/core";
 import {isInRange, isNotEmpty, useForm} from "@mantine/form";
 import {useFocusTrap} from "@mantine/hooks";
-import {ItemActions, ListActions, useListsDispatch} from "@/app/lists/ListsContext";
+import {ItemActions, ListActions, useListsDispatch} from "@/app/ListsContext";
 import {IconDeviceFloppy} from "@tabler/icons-react";
 
 export default function EditItemModal({modalClose, listId, item}: {

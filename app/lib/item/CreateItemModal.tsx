@@ -1,7 +1,7 @@
 import {isInRange, isNotEmpty, useForm} from "@mantine/form";
 import {Button, Group, NumberInput, Popover, PopoverDropdown, PopoverTarget, Text, TextInput} from "@mantine/core";
 import {useDisclosure, useFocusTrap, useTimeout} from "@mantine/hooks";
-import {ItemActions, ListActions, useListsDispatch, useNextItemId} from "@/app/lists/ListsContext";
+import {ItemActions, ListActions, useListsDispatch, useNextItemId} from "@/app/ListsContext";
 import {List} from "@/app/lib/types";
 
 function validateName(value: string | undefined, list: List) {
@@ -58,7 +58,6 @@ export default function CreateItemModal({modalClose, list}: {
                         id: newItemId,
                         name: values.name,
                         quantity: values.quantity,
-                        sort: 0,
                         checked: false
                     }
             }

@@ -1,5 +1,5 @@
 import {Button, Center, Checkbox, Grid, Menu, Modal, Paper, Text} from "@mantine/core";
-import {ItemActions, ListActions, useListsDispatch} from "@/app/lists/ListsContext";
+import {ItemActions, ListActions, useListsDispatch} from "@/app/ListsContext";
 import {Item} from "@/app/lib/types";
 import {useDisclosure} from "@mantine/hooks";
 import EditItemModal from "@/app/lib/item/EditItemModal";

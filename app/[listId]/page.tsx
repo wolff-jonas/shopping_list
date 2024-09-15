@@ -4,7 +4,7 @@ import ListHeader from "@/app/lib/list/ListHeader";
 import {Divider, ScrollArea, Space, Stack, Text} from "@mantine/core";
 import ItemCard from "@/app/lib/item/ItemCard";
 import {Item} from "@/app/lib/types";
-import {useLists} from "@/app/lists/ListsContext";
+import {useLists} from "@/app/ListsContext";
 import {useRouter} from "next/navigation";
 import {useEffect} from "react";
 
@@ -17,7 +17,7 @@ export default function ListComponent({params}: { params: { listId: string } }) 
     useEffect(() => {
         if (!list) {
             console.error(`List with id ${params.listId} not found`);
-            router.push("/lists");
+            router.push("/");
         }
     }, [list, params.listId, router]);
 

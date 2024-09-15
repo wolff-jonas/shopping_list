@@ -1,8 +1,8 @@
 import '@mantine/core/styles.layer.css';
 import type {Metadata} from "next";
 
-import {AppShell, AppShellFooter, AppShellMain, ColorSchemeScript, createTheme, MantineProvider} from '@mantine/core';
-import NavFooter from "@/app/NavFooter";
+import {ColorSchemeScript, createTheme, MantineProvider} from '@mantine/core';
+import ListContextProvider from "@/app/ListsContext";
 
 export const metadata: Metadata = {
     title: 'Shopping',
@@ -59,11 +59,6 @@ export interface Tab {
     text: string
 }
 
-const TABS: Tab[] = [
-    {slug: "/lists", text: "Lists"},
-    {slug: "/presets", text: "Presets"}
-]
-
 export default function RootLayout({children}: { children: React.ReactNode }) {
     return (
         <html lang="en">
@@ -87,14 +82,9 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
         </head>
         <body>
         <MantineProvider theme={theme}>
-            <AppShell>
-                <AppShellMain>
-                    {children}
-                </AppShellMain>
-                <AppShellFooter>
-                    <NavFooter tabs={TABS}/>
-                </AppShellFooter>
-            </AppShell>
+            <ListContextProvider>
+                {children}
+            </ListContextProvider>
         </MantineProvider>
         </body>
         </html>

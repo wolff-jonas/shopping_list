@@ -9,7 +9,7 @@ export default function ListCard({list}: { list: List }) {
     return (
         <Paper withBorder p="xs" radius="xs"
                bg="purple.1"
-               component={Link} href={`/lists/${list.id}`}>
+               component={Link} href={`/${list.id}`}>
             <Grid>
                 <GridCol span="auto">
                     <Title>{list.name}</Title>
