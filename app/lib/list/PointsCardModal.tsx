@@ -22,7 +22,7 @@ export default function PointsCardModal({list}: {
     return <Stack
         align="center"
         justify={"flex-start"}>
-        <Barcode value={list.pointsCardCode != "" ? list.pointsCardCode : "123456789"}/>
+        <Barcode value={list.pointsCardCode != "" ? list.pointsCardCode : "123456789"} format={"EAN13"}/>
         <TextInput
             label="Code"
             value={list.pointsCardCode}
