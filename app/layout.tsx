@@ -12,24 +12,24 @@ export const metadata: Metadata = {
 
 const theme = createTheme({
     colors: {
-        purple: [
-            "#ffeaff",
-            "#ffd0fb",
-            "#fe9df6",
-            "#fc68f1",
-            "#fb3dec",
-            "#fb25ea",
-            "#fc19ea",
-            "#e10dd0",
-            "#c801ba",
-            "#af00a2"
+        theme: [
+            "#ebefff",
+            "#d5dafc",
+            "#a9b1f1",
+            "#7b87e9",
+            "#5362e1",
+            "#3a4bdd",
+            "#2d3fdc",
+            "#1f32c4",
+            "#182cb0",
+            "#0b259c"
         ]
     },
 
     components: {
         Button: {
             defaultProps: {
-                color: "purple"
+                color: "theme"
             },
         },
         Title: {
@@ -44,12 +44,12 @@ const theme = createTheme({
         },
         Grid: {
             defaultProps: {
-                bg: "purple.1"
+                bg: "theme.1"
             }
         }
     },
 
-    primaryColor: "purple",
+    primaryColor: "theme",
     primaryShade: 6,
     defaultRadius: "md"
 });
@@ -73,7 +73,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
             <meta name="description" content="A little shopping list app"/>
             <meta name="format-detection" content="telephone=no"/>
             <meta name="mobile-web-app-capable" content="yes"/>
-            <meta name="theme-color" content="#ffd0fb"/>
+            <meta name="theme-color" content="#a9b1f1"/>
 
             <link rel="icon" type="image/png" href="/icons/favicon.png"/>
             <link rel="manifest" href="/manifest.json"/>

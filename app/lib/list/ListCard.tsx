@@ -8,7 +8,7 @@ export default function ListCard({list}: { list: List }) {
 
     return (
         <Paper withBorder p="xs" radius="xs"
-               bg="purple.1"
+               bg="theme.1"
                component={Link} href={`/${list.id}`}>
             <Grid>
                 <GridCol span="auto">

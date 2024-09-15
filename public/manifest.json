@@ -8,7 +8,7 @@
       "type": "image/png"
     }
   ],
-  "screenshots" : [
+  "screenshots": [
     {
       "src": "/icons/screenshot_wide.png",
       "sizes": "2255x1349",
@@ -23,7 +23,7 @@
       "label": "Homescreen of Shopping App"
     }
   ],
-  "theme_color": "#ffd0fb",
+  "theme_color": "#a9b1f1",
   "background_color": "#FFFFFF",
   "start_url": "/",
   "display": "standalone",

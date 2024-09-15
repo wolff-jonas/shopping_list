@@ -11,7 +11,7 @@ export default function ListsOverviewHeader() {
 
     return (
         <>
-            <Grid p="xs">
+            <Grid p="xs" bg="theme.2">
                 <Grid.Col span="content">
                     {/*Just here to fill space for the layout*/}
                     {/*TODO find a better way to lay this out*/}

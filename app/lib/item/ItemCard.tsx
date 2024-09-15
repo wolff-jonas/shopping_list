@@ -23,7 +23,7 @@ export default function ItemCard({item, listId}: { item: Item, listId: number })
 
     return (
         <>
-            <Paper withBorder p="xs" radius="xs" bg="purple.1">
+            <Paper withBorder p="xs" radius="xs" bg="theme.1">
                 <Grid>
                     <Grid.Col span={1}>
                         <Center h="100%">

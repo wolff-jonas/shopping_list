@@ -30,7 +30,7 @@ export default function ListHeader({list}: { list: List }) {
 
     return (
         <>
-            <Grid p="xs">
+            <Grid p="xs" bg="theme.2">
                 <Grid.Col span="content">
                     <Button variant="transparent" fullWidth size="compact-xl"
                             component={Link} href="/">
